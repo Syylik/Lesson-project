@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField, Range(0f, 30f)] private float _swingPower;
+    [SerializeField, Range(0f, 15f)] private float _grapDistance;
     [SerializeField] private List<Rigidbody2D> _endOfRopes;
 
     private bool _inAir = false;
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
             if(!_inAir) { Drop(); return; }
         }
 
+        if(_inAir) return;
         if(Input.GetKey(KeyCode.A)) Swing(Vector2.left);
         else if(Input.GetKey(KeyCode.D)) Swing(Vector2.right);
     }
@@ -35,15 +37,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void GrapRope()
     {
-        _springJoint.enabled = true;
         var nearestLink = _endOfRopes[0];
         foreach(var link in _endOfRopes)
         {
-            var linkDistance = Vector2.SqrMagnitude((Vector2)transform.position - link.position);
-            var nearestLinkDstance = Vector2.SqrMagnitude((Vector2)transform.position - nearestLink.position);
+            var linkDistance = Vector2.SqrMagnitude(_rigidbody2D.position - link.position);
+            var nearestLinkDstance = Vector2.SqrMagnitude(_rigidbody2D.position - nearestLink.position);
             if(linkDistance < nearestLinkDstance) nearestLink = link;
         }
-        _springJoint.connectedBody = nearestLink.GetComponent<Rigidbody2D>();
-        _inAir = false;
+
+        if(Vector2.SqrMagnitude(_rigidbody2D.position - nearestLink.position) <= _grapDistance)
+        {
+            _springJoint.connectedBody = nearestLink;
+            _springJoint.enabled = true;
+            _inAir = false;
+        }
     }
+
+    private void OnDrawGizmosSelected() => Gizmos.DrawWireSphere(transform.position, _grapDistance);
 }

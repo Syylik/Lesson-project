@@ -289,7 +289,6 @@ GameObject:
   - component: {fileID: 105473610}
   - component: {fileID: 105473607}
   - component: {fileID: 105473608}
-  - component: {fileID: 105473609}
   - component: {fileID: 105473611}
   m_Layer: 0
   m_Name: Player
@@ -306,7 +305,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105473604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.46, z: 0}
+  m_LocalPosition: {x: 2.75, y: 1.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -355,22 +354,6 @@ SpringJoint2D:
   m_Distance: 0.005
   m_DampingRatio: 1
   m_Frequency: 2
---- !u!70 &105473609
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105473604}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.018383175, y: 0.003676653}
-  m_Size: {x: 0.8422454, y: 2.2426362}
-  m_Direction: 0
 --- !u!114 &105473610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,11 +367,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _swingPower: 3.5
+  _grapDistance: 3
   _endOfRopes:
   - {fileID: 2125038224}
   - {fileID: 4598817}
---- !u!58 &105473611
-CircleCollider2D:
+--- !u!70 &105473611
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -397,12 +381,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.8
+  m_Offset: {x: 0.033119082, y: -0.006623745}
+  m_Size: {x: 1.3662003, y: 2.3179302}
+  m_Direction: 0
 --- !u!1 &141405964
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,7 +605,7 @@ SpringJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -2.72, y: 0}
-  m_ConnectedAnchor: {x: -0.32613188, y: 0.000000037264233}
+  m_ConnectedAnchor: {x: -0.32613188, y: -0.000000005336795}
   m_AutoConfigureDistance: 0
   m_Distance: 0.005
   m_DampingRatio: 0.17
@@ -903,7 +887,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1213232218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 2.75, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1141,7 +1125,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1416697378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.75, z: 0}
+  m_LocalPosition: {x: 2.75, y: 5.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1245,7 +1229,7 @@ SpringJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -1.3, y: 0}
-  m_ConnectedAnchor: {x: 0.000000019054605, y: 0.20591831}
+  m_ConnectedAnchor: {x: -2.5, y: 0.20591831}
   m_AutoConfigureDistance: 0
   m_Distance: 0.005
   m_DampingRatio: 0.17
@@ -1686,7 +1670,7 @@ SpringJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -2.88, y: 0}
-  m_ConnectedAnchor: {x: -0.6156456, y: 0.000000035654846}
+  m_ConnectedAnchor: {x: -0.6156456, y: -0.000000009858786}
   m_AutoConfigureDistance: 0
   m_Distance: 0.005
   m_DampingRatio: 0.17
@@ -1994,7 +1978,7 @@ SpringJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -2.34, y: 0}
-  m_ConnectedAnchor: {x: 0.0026845073, y: 0.00000003833399}
+  m_ConnectedAnchor: {x: 0.0026845073, y: 4.2424193e-11}
   m_AutoConfigureDistance: 0
   m_Distance: 0.005
   m_DampingRatio: 0.17
@@ -2302,7 +2286,7 @@ SpringJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -2.35, y: 0}
-  m_ConnectedAnchor: {x: 0.034743596, y: 0.000000037350198}
+  m_ConnectedAnchor: {x: 0.034743596, y: 5.4415916e-10}
   m_AutoConfigureDistance: 0
   m_Distance: 0.005
   m_DampingRatio: 0.17
